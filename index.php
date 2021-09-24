@@ -1,8 +1,8 @@
 <?php
-include 'autoloader.php';
-$db = new PDO("mysql:host=$server;dbname=$dbname", $user, $password);
-?>
+    require_once 'autoloader.php';
+    $db = new Connection("config.csv");
 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +14,6 @@ $db = new PDO("mysql:host=$server;dbname=$dbname", $user, $password);
 </head>
 <body>
     <h1>Prueba de inicio para Git y futuro Push al repositorio remoto</h1>
-    <?php ?>
+    <?=$db->connect("config.csv")?>
 </body>
 </html>

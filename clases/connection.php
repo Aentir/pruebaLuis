@@ -10,18 +10,12 @@
 
     public function __construct()
     {
-        
+
     }
 
     public function connect ()
     {
-        /*$config = fopen($config, "r");
-        $datos = fgetcsv($config);
-
-        $this->server = $datos[0];
-        $this->user = $datos[1];
-        $this->password = $datos[2];
-        $this->dbname = $datos[3];*/
+        
 
         //Gestión de excepciones, INTENTA conectar a la base de datos y si no lo consigue, CAPTURA / CATCH el fallo
             try {

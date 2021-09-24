@@ -1,3 +1,9 @@
+<?php
+include 'autoloader.php';
+$db = new PDO("mysql:host=$server;dbname=$dbname", $user, $password);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +14,6 @@
 </head>
 <body>
     <h1>Prueba de inicio para Git y futuro Push al repositorio remoto</h1>
-    <!-- Aqui debe ir el script en PhP para mostrarlo en el navegador-->
+    <?php ?>
 </body>
 </html>

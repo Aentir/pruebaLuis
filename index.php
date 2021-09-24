@@ -1,6 +1,6 @@
 <?php
     require_once 'autoloader.php';
-    $db = new Connection("config.csv");
+    $db = new Connection();
 
 ?>
 
@@ -14,6 +14,6 @@
 </head>
 <body>
     <h1>Prueba de inicio para Git y futuro Push al repositorio remoto</h1>
-    <?=$db->connect("config.csv")?>
+    <?=$db->connect()?>
 </body>
 </html>

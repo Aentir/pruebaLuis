@@ -10,14 +10,14 @@ class Showinfo extends Connection implements CrudInterface {
     {
         $db = $this->connect();
 
-        //$busqueda = $_POST["alum_dni"];
+        $busqueda = $_GET["alum_nombre"];
 
-        $sql = "SELECT * FROM t_alumnos WHERE alum_nombre = ?";
+        $sql = "SELECT alum_nombre FROM t_alumnos WHERE alum_nombre = ?";
         $result = $db->prepare($sql);
-        $result->execute(array("Juan"));
+        $result->execute(array($busqueda));
 
         while ($registro = $result->fetch(PDO::FETCH_ASSOC)) {
-            echo "El alumno con DNI: " . $registro['alum_dni'] . " se llama: " . $registro["alum_nombre"] . "<br>";
+            echo  $registro["alum_nombre"] . "<br>";
         }
 
         $result->closeCursor();

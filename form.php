@@ -11,9 +11,10 @@
 	<title>Document</title>
 </head>
 <body>
-	<form action="Showinfo.php" method="POST"></form>
+	<form action="Showinfo.php" method="get"></form>
 		<label>DNI</label>
-			<input type="text" name="alum_dni" value="alum_dni">
+			<input type="text" name="alum_dni">
+			<input type="submit" name="enviando" value="Enviar">
 
 </body>
 </html>

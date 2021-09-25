@@ -2,7 +2,7 @@
 
 function autoloader($clase)
 {
-$dir = ["clases"/*, "contracts"*/];
+$dir = ["clases", "contracts"];
     $fileExist = false;
     foreach ($dir as $directorio) {
       $fichero = "$directorio/{$clase}.php";

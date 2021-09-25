@@ -1,6 +1,6 @@
 <?php
 
-    /*abstract*/ class Connection {
+    abstract class Connection {
 
     private $server = "localhost";
     private $user = "root";
@@ -25,13 +25,15 @@
         //Se establece un nivel de errores de excepción, ATTR_ERRMODE reporta los errores que ocurren pero el script continuará ejecutandose
         //ERRMODE_EXCEPTION señala donde está ocurriendo el error en cuestión
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    echo "He conectado correctamente";
+                    echo "He conectado correctamente" . "<br>";
         
             }catch (PDOException $e) {
         //La función getMessage() nos da información del error que está sucediendo
                 echo "Error: " . $e->getMessage();
         
             }
+
+            return $db;
     }
 
     //Se libera la memoria  

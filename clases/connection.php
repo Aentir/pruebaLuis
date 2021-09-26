@@ -11,9 +11,9 @@
     public function __construct()
     {
          try {
-                    $db = new PDO("mysql:host=$this->server;dbname=$this->dbname", $this->user, $this->password);
+                    $this->db = new PDO("mysql:host=$this->server;dbname=$this->dbname", $this->user, $this->password);
             
-                    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         echo "He conectado correctamente" . "<br>";
     
         } catch (PDOException $e) {
@@ -21,7 +21,7 @@
             
         }
     
-        return $db;
+      
     }
 
     /*public function connect()

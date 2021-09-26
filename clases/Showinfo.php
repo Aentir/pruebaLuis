@@ -8,12 +8,19 @@ class Showinfo extends Connection implements CrudInterface {
     
     public function get() 
     {
-
+        //Por defecto hago que si no esta definido, le pongo un valor más que nada para evitar el error que no esta definido alum_nombre
+        //ya que cuando entro la primera vez y no envias nada por get no esta definido.
+        if(empty($_GET["alum_nombre"])){
+            $nombre = "Luis";
+        }else{
+            $nombre = $_GET["alum_nombre"];
+        }
+        
         $sql = "SELECT * FROM t_alumnos WHERE alum_nombre = ?";
         
         $result = $this->db->prepare($sql);
         
-        $result->execute(array("Juan"));
+        $result->execute([$nombre]);
 
         while ($registro = $result->fetch(PDO::FETCH_ASSOC)) {
             echo  $registro["alum_nombre"] . $registro["alum_dni"] . "<br>";

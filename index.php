@@ -1,6 +1,6 @@
 <?php
     require_once 'autoloader.php';
-    $db = new Showinfo();
+    $conexion = new Showinfo();
 
 ?>
 
@@ -14,11 +14,11 @@
 </head>
 <body>
     <h1>Prueba de inicio para Git y futuro Push al repositorio remoto</h1>
-    <form action="Showinfo.php" method="get">
+    <form action="" method="get">
         <label>DNI</label>
 			<input type="text" name="alum_nombre">
 			<input type="submit" name="enviando" value="Enviar">
     </form>
-    <?=$db->get()?>
+    <?=$conexion->get()?>
 </body>
 </html>

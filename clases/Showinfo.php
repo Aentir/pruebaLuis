@@ -6,18 +6,17 @@ class Showinfo extends Connection implements CrudInterface {
         parent::__construct();
     }
     
-    function get() 
+    public function get() 
     {
-        $db = $this->connect();
 
-        $busqueda = $_GET["alum_nombre"];
-
-        $sql = "SELECT alum_nombre FROM t_alumnos WHERE alum_nombre = ?";
-        $result = $db->prepare($sql);
-        $result->execute(array($busqueda));
+        $sql = "SELECT * FROM t_alumnos WHERE alum_nombre = ?";
+        
+        $result = $this->db->prepare($sql);
+        
+        $result->execute(array("Juan"));
 
         while ($registro = $result->fetch(PDO::FETCH_ASSOC)) {
-            echo  $registro["alum_nombre"] . "<br>";
+            echo  $registro["alum_nombre"] . $registro["alum_dni"] . "<br>";
         }
 
         $result->closeCursor();
@@ -38,7 +37,7 @@ class Showinfo extends Connection implements CrudInterface {
     function add($values)
     {
         /*$db = $this->connect();
-        $stmt = $db->prepare("INSERT INTO t_alumnos (alum_dni,alum_nombre,alum_apellido1,alum_apellido2) VALUES (:alum_dni, :alum_nombre, :alum_apellido1, :alum_apellido2)");
+        $stmt = $db->prepare("INSERT INTO t_alumnos (alum_dni,alum_nombre,alum_apellido1,alum_apellido2) VALUES (?, ?, ?, ?)");
 
         $dni = $_POST['alum_dni'];
         $nombre = $_POST['alum_nombre'];
